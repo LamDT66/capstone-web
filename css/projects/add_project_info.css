@@ -1,0 +1,25 @@
+.add-project-info-wrapper {
+  position: relative;
+}
+
+.add-project-info-form-label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.add-project-info-button-group-wrapper {
+}
+
+.add-project-info-button-group {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.add-project-students-email-wrapper {
+  padding-bottom: 65px;
+}
+
+.add-project-students-email-button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}

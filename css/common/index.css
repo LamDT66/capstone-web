@@ -1,0 +1,32 @@
+.field-required {
+    color: red;
+}
+
+/* Update Profile */
+.radio-button-label {
+    display: flex;
+    align-items: center;
+    margin-right: 16px;
+}
+
+.radio-button-label input[name="validation-gender"],
+.radio-button-label input[name="status-name"] {
+    margin-right: 4px;
+}
+
+.border-style {
+    border: solid 1px;
+}
+
+.button-update-issue {
+    float: right;
+    margin-right: 70px;
+}
+.button-view-issue {
+    margin-left: 70px;
+}
+
+/*  */
+.nav-link.dropdown-toggle.d-flex.align-items-center.dropdown-toggle-icon-custom::after {
+    content: none !important;
+}

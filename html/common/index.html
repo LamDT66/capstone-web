@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="Demo CRUD" />
+  <meta name="author" content="DuyNN8" />
+
+  <link rel="icon" href="../../img/logo.png" type="image/x-icon" />
+  <title>CPMS</title>
+
+  <link rel="preconnect" href="//fonts.gstatic.com/" crossorigin="" />
+  <link href="../../css/classic.css" rel="stylesheet" />
+
+  <!-- Index Style -->
+  <link href="../../css/common/index.css" rel="stylesheet" />
+
+  <!-- Report style -->
+  <link rel="stylesheet" href="../../css/Report/style.css">
+
+  <!-- Project Style -->
+  <link rel="stylesheet" href="../../css/projects/add_project_info.css">
+
+  <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+  <script src="https://momentjs.com/downloads/moment.min.js"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-120946860-6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "UA-120946860-6");
+  </script>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <!-- Left Menu -->
+    <nav id="left-menu" class="sidebar"></nav>
+
+    <div class="main">
+      <!-- Header -->
+      <nav id="header" class="navbar navbar-expand navbar-light bg-white"></nav>
+
+      <!-- Main -->
+      <main id="content" class="content"></main>
+
+      <!-- Footer -->
+      <footer id="footer" class="footer"></footer>
+    </div>
+  </div>
+
+  <script src="../../js/lib/app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
+
+  <!-- common js -->
+  <script src="	../../js/common-ui/notification.js"></script>
+  <script src="	../../js/common-ui/sort.js"></script>
+  <script src="../../js/DeclareGlobalVariable.js"></script>
+  <script src="../../js/common-ui/validator.js"></script>
+  <script src="../../js/common-ui/modal.js"></script>
+  <script src="../../js/common-ui/select2.js"></script>
+  <script src="../../js/common-ui/date.js"></script>
+  <script src="../../js/index.js"></script>
+  <script src="../../storage/storage.js"></script>
+  <script src="../../js/constant/constant.js"></script>
+  <script src="../../js/script.js"></script>
+
+  <!-- API -->
+  <script src="../../api/authAPI.js"></script>
+  <script src="../../api/settingAPI.js"></script>
+  <script src="../../api/userAPI.js"></script>
+  <script src="../../api/subjectAPI.js"></script>
+  <script src="../../api/reportAPI.js"></script>
+  <script src="../../api/milestoneAPI.js"></script>
+  <script src="../../api/projectSettingAPI.js"></script>
+  <script src="../../api/projectAPI.js"></script>
+  <script src="../../api/projectStudentAPI.js"></script>
+  <script src="../../api/classAPI.js"></script>
+  <script src="../../api/studentAPI.js"></script>
+  <script src="../../api/projectMilestoneAPI.js"></script>
+
+  <script src="../../api/issueAPI.js"></script>
+
+  <!-- pages project-->
+  <script src="../../js/pages/projects/index.js"></script>
+  <script src="../../js/pages/projects/viewlist.js"></script>
+  <script src="../../js/pages/projects/select.js"></script>
+  <script src="../../js/pages/projects/project_info/select.js"></script>
+
+  <!-- pages project info-->
+  <script src="../../js/pages/projects/project_info/index.js"></script>
+  <script src="../../js/pages/projects/project_info/view.js"></script>
+  <script src="../../js/pages/projects/project_info/update.js"></script>
+  <script src="../../js/pages/projects/project_info/addProjectInfo.js"></script>
+  <script src="../../js/pages/projects/project_info/select.js"></script>
+
+    <!-- pages project config-->
+    <script src="../../js/pages/projects/project_config/index.js"></script>
+    <script src="../../js/pages/projects/project_config/viewlist.js"></script>
+    <script src="../../js/pages/projects/project_config/insert.js"></script>
+    <script src="../../js/pages/projects/project_config/update.js"></script>
+    <script src="../../js/pages/projects/project_config/delete.js"></script>
+    <script src="../../js/pages/projects/project_config/typeSelect.js"></script>
+  
+    <!-- pages project milestone-->
+    <script src="../../js/pages/projects/project_milestone/index.js"></script>
+    <script src="../../js/pages/projects/project_milestone/viewlist.js"></script>
+    <script src="../../js/pages/projects/project_milestone/insert.js"></script>
+    <script src="../../js/pages/projects/project_milestone/update.js"></script>
+    <script src="../../js/pages/projects/project_milestone/delete.js"></script>
+  
+
+  <!-- project students -->
+  <script src="../../js/pages/project-students/viewlist.js"></script>
+
+  <!-- pages setting-->
+  <script src="../../js/pages/settings/index.js"></script>
+  <script src="../../js/pages/settings/viewlist.js"></script>
+  <script src="../../js/pages/settings/insert.js"></script>
+  <script src="../../js/pages/settings/update.js"></script>
+  <script src="../../js/pages/settings/delete.js"></script>
+  <script src="../../js/pages/settings/typeSelect.js"></script>
+
+  <!-- pages subject -->
+  <script src="../../js/pages/subjects/index.js"></script>
+  <script src="../../js/pages/subjects/viewlist.js"></script>
+  <script src="../../js/pages/subjects/insert.js"></script>
+  <script src="../../js/pages/subjects/update.js"></script>
+  <script src="../../js/pages/subjects/delete.js"></script>
+  <script src="../../js/pages/subjects/facultySelect.js"></script>
+  <script src="../../js/pages/subjects/managerSelect.js"></script>
+
+  <!-- pages user management-->
+  <script src="../../js/pages/users/index.js"></script>
+  <script src="../../js/pages/users/viewlist.js"></script>
+  <script src="../../js/pages/users/insert.js"></script>
+  <script src="../../js/pages/users/roleSelect.js"></script>
+  <script src="../../js/pages/users/delete.js"></script>
+  <script src="../../js/pages/users/update.js"></script>
+
+  <!-- auth-->
+  <script src="../../js/pages/auth/index.js"></script>
+  <script src="../../js/pages/auth/change-password.js"></script>
+
+  <!-- pages profile-->
+  <script src="../../js/pages/user-profile/index.js"></script>
+  <script src="../../js/pages/user-profile/Select.js"></script>
+  <script src="../../js/pages/user-profile/update.js"></script>
+
+  <!-- pages report -->
+  <script src="../../js/pages/reports/index.js"></script>
+  <script src="../../js/pages/reports/viewlist.js"></script>
+  <script src="../../js/pages/reports/select.js"></script>
+  <script src="../../js/pages/reports/sendReport.js"></script>
+
+  <!-- page issue -->
+  <script src="../../js/pages/issues/index.js"></script>
+  <script src="../../js/pages/issues/viewlist.js"></script>
+  <script src="../../js/pages/issues/select.js"></script>
+  <script src="../../js/pages/issues/insert.js"></script>
+  <script src="../../js/pages/issues/update.js"></script>
+  <script src="../../js/pages/issues/delete.js"></script>
+
+  <!-- page class -->
+  <script src="../../js/pages/class/index.js"></script>
+  <script src="../../js/pages/class/viewlist.js"></script>
+  <script src="../../js/pages/class/select.js"></script>
+  <script src="../../js/pages/class/insert.js"></script>
+  <script src="../../js/pages/class/update.js"></script>
+  <script src="../../js/pages/class/delete.js"></script>
+
+  <!-- page student -->
+  <script src="../../js/pages/student/index.js"></script>
+  <script src="../../js/pages/student/viewlist.js"></script>
+  <script src="../../js/pages/student/select.js"></script>
+  <script src="../../js/pages/student/insert.js"></script>
+  <script src="../../js/pages/student/import.js"></script>
+  <script src="../../js/pages/student/delete.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<div class="container-fluid p-0">
+  <h1 class="h3 mb-3" id="report-project-name">Report</h1>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body position-relative">
+          <!-- search & other buttons -->
+          <div class="d-flex align-items-center mb-2">
+            <div class="mr-auto" style="flex-basis: 250px">
+            </div>
+            <div id="add-project-report" onclick="openSendProjectReportModal()">
+              <i class="mr-2" data-feather="plus-circle" data-toggle="tooltip" data-placement="top"
+                title="Add report button">
+              </i>
+            </div>
+          </div>
+  
+          <!-- wrapper -->
+          <div id="report-table-body">
+          </div>
+
+          <!-- pagination -->
+          <div class="d-flex justify-content-end">
+            <nav aria-label="...">
+              <ul class="pagination" id="project-report-pagination">
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEGIN add/update modal -->
+  <div class="modal fade" id="project-report-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <form id="report-form" enctype="multipart/form-data">
+          <div class="modal-header">
+            <h5 id="project-report-modal-title" class="modal-title"></h5>
+            <button id="close-button-project-report-modal" type="button" class="close" data-dismiss="modal"
+              aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body m-3">
+            <div class="form-group">
+              <label class="form-label">Title<span class="field-required">*</span></label>
+              <input id="title-input" type="text" class="form-control" name="validation-title"
+                placeholder="Enter Title" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Milestone<span class="field-required">*</span></label>
+              <select id="report-milestone-input" class="form-control" name="validation-milestone">
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label w-100">File input</label>
+              <input id="report-file-input" type="file" name="validation-report-file">
+              <small class="form-text text-muted">Select file to submit here.</small>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">
+              Close
+            </button>
+            <button id="send-report-btn" type="submit" class="btn btn-primary">Send Report</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- END add/update modal -->
+</div>

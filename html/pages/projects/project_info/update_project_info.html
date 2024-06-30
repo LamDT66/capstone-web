@@ -1,0 +1,100 @@
+<div class="container-fluid p-0" style="position: relative">
+    <h1 class=" h3 mb-3 font-weight-bold">Update project details</h1>
+    <form id="update-project-form">
+        <div class=" row">
+            <div class="col-12">
+                <div class="container-fluid p-4 bg-white">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label class="form-label add-project-info-form-label required">Class</label>
+                            <select id="class-input" class="form-control" name="validation-class"></select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="group-name-input" class="add-project-info-form-label required">Group
+                                Name</label>
+                            <input type="text" class="form-control" id="group-name-input" name="validation-groupName"
+                                placeholder="Group Name" />
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="inputStatus" class="add-project-info-form-label required">
+                                    Status
+                                </label>
+                                <div class="d-flex align-items-center">
+                                    <label class="radio-button-label">
+                                        <input id="active-status-input" name="status-input" type="radio" value="ACTIVE"
+                                            checked>
+                                        Active
+                                    </label>
+                                    <label class="radio-button-label">
+                                        <input id="inactive-status-input" name="status-input" type="radio"
+                                            value="INACTIVE">
+                                        Inactive
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="form-label add-project-info-form-label required">Member</label>
+                            <select id="team-member-input" class="form-control" name="validation-team-member"
+                                multiple></select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="project-code-input" class=" add-project-info-form-label required">Project
+                                Code</label>
+                            <input type="text" class="form-control" id="project-code-input"
+                                name="validation-projectCode" placeholder="Project Name" />
+                        </div>
+                        <div class=" form-group col-md-4">
+                            <label for="english-name-input" class=" add-project-info-form-label required">English
+                                Name</label>
+                            <input type="text" class="form-control" id="english-name-input"
+                                name="validation-englishName" placeholder="English Name" />
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="vietnamese-name-input" class=" add-project-info-form-label required">Vietnamese
+                                Name</label>
+                            <input type="text" class="form-control" id="vietnamese-name-input"
+                                name="validation-vietnameseName" placeholder="Vietnamese Name" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class=" form-group col-md-4">
+                            <label class="form-label add-project-info-form-label required">Mentor</label>
+                            <select id="mentor-input" class="form-control" name="validation-mentor"></select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label add-project-info-form-label required">Co_Mentor</label>
+                            <select id="co-mentor-input" class="form-control" name="validation-coMentor"></select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label add-project-info-form-label">Leader</label>
+                            <select id="leader-input" class="form-control" name="validation-leader"></select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="note-input " class="mb-0 add-project-info-form-label">Note</label>
+                            <textarea type="text" class="form-control" id="note-input" name="validation-note"
+                                placeholder="Note" />
+                        </div>
+                    </div>
+                    <div class="add-project-info-button-group-wrapper">
+                        <div class="row add-project-info-button-group">
+                            <div class="col-2">
+                                <button type="button" onclick="backtoDetailProjectScreen()" class="btn btn-light btn-block">Cancel</button>
+                            </div>
+                            <div class="col-2">
+                                <button type="submit" class="btn btn-success btn-block">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

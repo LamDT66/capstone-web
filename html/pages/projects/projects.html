@@ -1,0 +1,76 @@
+<div class="container-fluid p-0">
+  <div class="col-md-12">
+    <div style="display: flex; justify-content: space-between;">
+      <h1 class="h3 mb-3">Project List</h1>
+      <div id="add-project-button"></div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <!-- search & other buttons -->
+        <div class="d-flex align-items-center mb-2">
+          <div class="mr-auto" style="flex-basis: 250px">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search ..." onchange="changeProjectSearch()"
+                id="project-search" />
+              <span class="input-group-append">
+                <button class="btn btn-secondary" type="button" onclick="changeProjectSearch()">
+                  Search
+                </button>
+              </span>
+            </div>
+          </div>
+          <div onclick="refreshProjectTable()">
+            <i class="mr-2" data-feather="refresh-ccw" data-toggle="tooltip" data-placement="top"
+              title="Refresh table button">
+            </i>
+          </div>
+          <div title="Add project button" id="add-project-button1" onclick="loadAddProjectInfoPage()">
+            <i class="mr-2" data-feather="plus-circle" data-toggle="tooltip" data-placement="top"
+              >
+            </i>
+          </div>
+        </div>
+
+        <!-- Filter form -->
+        <div id="project-filter" class="row align-items-center">
+          <!-- class -->
+          <div class="col-3">
+            <select id="class-input-filter" class="form-control" name="validation-class-filter">
+            </select>
+          </div>
+          <div class="col-3">
+            <div class="mb-2">
+              <button class="btn btn-secondary" type="button" style="margin-top: 8px;"
+                onclick="changeProjectFilter()">Filter</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- table -->
+        <div class="" id="project-table"></div>
+
+        <!-- pagination -->
+        <div class="d-flex justify-content-end">
+          <nav aria-label="...">
+            <ul class="pagination" id="project-pagination">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item active">
+                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

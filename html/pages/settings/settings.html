@@ -1,0 +1,217 @@
+<div class="container-fluid p-0">
+  <h1 class="h3 mb-3">Setting List</h1>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <!-- search & filter & other buttons -->
+          <div class="d-flex align-items-center mb-2">
+            <div class="mr-auto" style="flex-basis: 250px">
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Search ..."
+                  onkeyup="changeSettingSearch()"
+                  id="setting-search"
+                />
+                <span class="input-group-append">
+                  <button
+                    class="btn btn-secondary"
+                    type="button"
+                    onclick="changeSettingSearch()"
+                  >
+                    Search
+                  </button>
+                </span>
+              </div>
+            </div>
+            <div onclick="refreshSettingTable()">
+              <i
+                class="mr-2"
+                data-feather="refresh-ccw"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Refresh table button"
+              >
+              </i>
+            </div>
+            <div onclick="openAddSettingModal()">
+              <i
+                class="mr-2"
+                data-feather="plus-circle"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Add setting button"
+              >
+              </i>
+            </div>
+          </div>
+
+          <!-- table -->
+          <table class="col-12 table table-striped table-hover table-bordered">
+            <thead>
+              <tr>
+                <th
+                  style="width: 25%"
+                  onclick="changeSettingSort('settingType')"
+                >
+                  Type
+                  <span id="setting-type-sort-icon" class="d-none"
+                    ><i data-feather="chevron-up"></i
+                  ></span>
+                </th>
+                <th
+                  style="width: 25%"
+                  onclick="changeSettingSort('settingName')"
+                >
+                  Name
+                  <span id="setting-name-sort-icon" class="d-none"
+                    ><i data-feather="chevron-up"></i
+                  ></span>
+                </th>
+                <th
+                  style="width: 25%"
+                  onclick="changeSettingSort('settingDisplayOrder')"
+                >
+                  Display Order
+                  <span id="setting-order-sort-icon" class="d-none"
+                    ><i data-feather="chevron-up"></i
+                  ></span>
+                </th>
+                <th style="width: 10%">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="setting-table-body"></tbody>
+          </table>
+
+          <!-- pagination -->
+          <div class="d-flex justify-content-end">
+            <nav aria-label="...">
+              <ul class="pagination" id="setting-pagination"></ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEGIN add/update modal -->
+  <div
+    class="modal fade"
+    id="setting-modal"
+    tabindex="-1"
+    role="dialog"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <form id="setting-form">
+          <div class="modal-header">
+            <h5 id="setting-modal-title" class="modal-title">
+              Add Setting Modal
+            </h5>
+            <button
+              id="close-button-setting-modal"
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body m-3">
+            <div class="form-group">
+              <label class="form-label"
+                >Type <span class="field-required">*</span></label
+              >
+              <select
+                id="settingType-input"
+                class="form-control"
+                name="validation-settingType"
+              ></select>
+            </div>
+            <div class="form-group">
+              <label class="form-label"
+                >Name <span class="field-required">*</span></label
+              >
+              <input
+                id="settingName-input"
+                type="text"
+                class="form-control"
+                name="validation-settingName"
+                placeholder="Name"
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label"
+                >Display Order <span class="field-required">*</span></label
+              >
+              <input
+                id="settingOrder-input"
+                type="text"
+                class="form-control"
+                name="validation-settingOrder"
+                placeholder="Display Order"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">
+              Close
+            </button>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- END add/update modal -->
+
+  <!-- BEGIN delete modal -->
+  <div
+    class="modal fade"
+    id="delete-setting-modal"
+    tabindex="-1"
+    role="dialog"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Delete Setting Modal</h5>
+          <button
+            id="close-button-setting-modal"
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body m-3">
+          <p>
+            Do you wanna delete
+            <b id="delete-setting-settingName" style="color: red"></b>?
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">
+            Close
+          </button>
+          <button
+            onclick="deleteSettingFromServer()"
+            type="button"
+            class="btn btn-primary"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END delete modal -->
+</div>

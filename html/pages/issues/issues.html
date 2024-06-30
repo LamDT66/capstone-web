@@ -1,0 +1,228 @@
+<div class="container-fluid p-0">
+  <h1 class="h3 mb-3" id="issue-project-name">Issue List</h1>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <!-- search & other buttons -->
+          <div class="d-flex align-items-center mb-2">
+            <div class="mr-auto" style="flex-basis: 250px">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search ..." onchange="changeIssueSearch()"
+                  id="issue-search" />
+                <span class="input-group-append">
+                  <button class="btn btn-secondary" type="button" onclick="changeIssueSearch()">
+                    Search
+                  </button>
+                </span>
+              </div>
+            </div>
+            <div onclick="refreshIssueTable()">
+              <i class="mr-2" data-feather="refresh-ccw" data-toggle="tooltip" data-placement="top"
+                title="Refresh table button">
+              </i>
+            </div>
+            <span id="insert-import-button">
+              <button type="button" class="btn btn-secondary" onclick="openModalAddIssue()">+ New Issue</button>
+            </span>
+          </div>
+          <!-- Filter form -->
+          <div class="row align-items-center">
+            <!-- project -->
+            <div id="project-filter" class="col-3">
+              <select id="project-input-filter" class="form-control" name="validation-project-filter">
+              </select>
+            </div>
+            <!-- assignee -->
+            <div class="col-3">
+              <select id="assignee-input-filter" class="form-control" name="validation-assignee-filter">
+              </select>
+            </div>
+            <!-- assigner -->
+            <div class="col-3">
+              <select id="assigner-input-filter" class="form-control" name="validation-assigner-filter">
+              </select>
+            </div>
+            <!-- status -->
+            <div class="col-3">
+              <select id="status-issue-filter" class="form-control" name="validation-status-filter">
+                <option value="">Select status...</option>
+                <option value="PENDING">PENDING</option>
+                <option value="ONGOING">ONGOING</option>
+                <option value="DONE">DONE</option>
+              </select>
+            </div>
+            <div class="col-3">
+              <div class="mb-2">
+                <button class="btn btn-secondary" type="button" style="margin-top: 8px;"
+                  onclick="changeIssueFilter()">Filter</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- table -->
+          <table class="col-12 table table-striped table-hover table-bordered">
+            <thead>
+              <tr>
+                <th style="width: 7%" onclick="changeIssueSort('id')">
+                  ID
+                  <span id="project-id-sort-icon" class="d-none"><i data-feather="chevron-up"></i></span>
+                </th>
+                <th style="width: 12%" onclick="changeIssueSort('title')">
+                  Title
+                  <span id="title-sort-icon" class="d-none"><i data-feather="chevron-up"></i></span>
+                </th>
+                <th id="project-column" style="width: 10%" onclick="changeIssueSort('project.englishName')">
+                  Project
+                  <span id="project-sort-icon" class="d-none"><i data-feather="chevron-up"></i></span>
+                </th>
+                <th style="width: 10%" onclick="changeIssueSort('milestone.title')">
+                  Milestone
+                  <span id="milestone-sort-icon" class="d-none"><i data-feather="chevron-up"></i></span>
+                </th>
+                <th style="width: 10%" onclick="changeIssueSort('type.settingName')">
+                  Issue Type
+                  <span id="issueType-sort-icon" class="d-none"><i data-feather="chevron-up"></i></span>
+                </th>
+                <th style="width: 12%" onclick="changeIssueSort('process.settingName')">
+                  Process
+                  <span id="process-sort-icon" class="d-none"><i data-feather="chevron-up"></i></span>
+                </th>
+                <th style="width: 12%" onclick="changeIssueSort('status')">
+                  Status
+                  <span id="status-sort-icon" class="d-none"><i data-feather="chevron-up"></i></span>
+                </th>
+                <th id="assignee-id-column" style="width: 12%" onclick="changeIssueSort('assignee.fullName')">
+                  Assignee
+                  <span id="assignee-sort-icon" class="d-none"><i data-feather="chevron-up"></i></span>
+                </th>
+                <th id="assigner-id-column" style="width: 12%" onclick="changeIssueSort('assigner.fullName')">
+                  Assigner
+                  <span id="assigner-sort-icon" class="d-none"><i data-feather="chevron-up"></i></span>
+                </th>
+                <th id="action-column" style="width: 10%">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="issue-table-body">
+            </tbody>
+          </table>
+
+          <!-- pagination -->
+          <div class="d-flex justify-content-end">
+            <nav aria-label="...">
+              <ul class="pagination" id="issue-pagination">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active">
+                  <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">Next</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal add/update issue-->
+  <div class="modal fade" id="issue-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <form id="issue-form">
+          <div class="modal-header">
+            <h5 id="issue-modal-title" class="modal-title">
+            </h5>
+            <button id="close-button-subject-modal" type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body m-3">
+
+            <div class="form-group">
+              <label class="form-label">Milestone<span class="field-required">*</span></label>
+              <select id="milestone-input" class="form-control" name="validation-milestone">
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Title<span class="field-required">*</span></label>
+              <input id="title-input" type="text" class="form-control" name="validation-title"
+                placeholder="Enter Title" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Description <span class="field-required">*</span></label>
+              <textarea id="description-input" class="form-control" name="validation-description"
+                placeholder="Enter Description"></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Type<span class="field-required">*</span></label>
+              <select id="type-input" class="form-control" name="validation-type">
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Process<span class="field-required">*</span></label>
+              <select id="process-input" class="form-control" name="validation-process">
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Assignee <span class="field-required">*</span></label>
+              <select id="assignee-input" class="form-control" name="validation-assignee">
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Status <span class="field-required">*</span></label>
+              <select id="status-input" class="form-control" name="validation-status">
+                <option value="">Select status...</option>
+                <option value="PENDING">PENDING</option>
+                <option value="ONGOING">ONGOING</option>
+                <option value="DONE">DONE</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">
+              Close
+            </button>
+            <button id="save-btn" type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- END add/update issue modal -->
+
+  <!-- BEGIN delete issue modal -->
+  <div class="modal fade" id="delete-issue-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Delete Issue Modal</h5>
+          <button id="close-button-issue-modal" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body m-3">
+          <p>
+            Do you wanna delete
+            <b id="delete-issue-title" style="color: red"></b>?
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">
+            Close
+          </button>
+          <button onclick="deleteIssueFromServer()" type="button" class="btn btn-primary">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END delete issue modal -->
+</div>

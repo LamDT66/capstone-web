@@ -1,0 +1,65 @@
+<div class="sidebar-content">
+  <span class="sidebar-brand">
+    <img onclick="loadDefaultPage()" id="cpms-logo" src="../../img/logo.png" class="avatar img-fluid rounded-circle" />
+    <span onclick="loadDefaultPage()" id="cpms-title" class="align-middle">CPMS</span>
+  </span>
+
+  <ul class="sidebar-nav">
+    <li id="setting-menu" class="sidebar-item">
+      <a class="sidebar-link" href="#" onclick="loadSettingPage()">
+        <i class="align-middle" data-feather="settings"></i>
+        <span class="align-middle">Setting</span>
+      </a>
+    </li>
+
+    <li id="user-menu" class="sidebar-item">
+      <a class="sidebar-link" href="#" onclick="loadUserPage()">
+        <i class="align-middle" data-feather="users"></i>
+        <span class="align-middle">User</span>
+      </a>
+    </li>
+    <li id="subject-menu" class="sidebar-item">
+      <a class="sidebar-link" href="#" onclick="loadSubjectPage()">
+        <i class="align-middle" data-feather="book"></i>
+        <span class="align-middle">Subjects</span>
+      </a>
+    </li>
+    <li id="project-menu" class="sidebar-item">
+      <a class="sidebar-link" href="#" onclick="loadProjectPage()">
+        <i class="align-middle" data-feather="box"></i>
+        <span class="align-middle">Project</span>
+      </a>
+    </li>
+    <li id="report-menu" class="sidebar-item">
+      <a class="sidebar-link" href="#" onclick="loadReportPage()">
+        <i class="align-middle" data-feather="folder"></i>
+        <span class="align-middle">Reports</span>
+      </a>
+    </li>
+    <li id="issue-menu" class="sidebar-item">
+      <a class="sidebar-link" href="#" onclick="loadIssuePage()">
+        <i class="align-middle" data-feather="tag"></i>
+        <span class="align-middle">Issues</span>
+      </a>
+    </li>
+    <li id="class-menu" class="sidebar-item">
+      <a class="sidebar-link" href="#" onclick="loadClassPage()">
+        <i class="align-middle" data-feather="home"></i>
+        <span class="align-middle">Class</span>
+      </a>
+    </li>
+  </ul>
+
+  <div class="sidebar-bottom d-none d-lg-block">
+    <div class="media">
+      <div class="nav-link dropdown-toggle d-flex align-items-center dropdown-toggle-icon-custom"  data-toggle="dropdown" style="cursor: pointer; user-select: none; ">
+        <span id="left-menu-user-avatar" style="background-color: #4778c7; color: #fff; font-size: 18px; font-weight: 500;" class="avatar rounded-circle mr-1 d-flex align-items-center justify-content-center" alt="Chris Wood" />
+        <span id="header-fullname" class="text-dark"></span>
+      </div>
+      <div class="media-body">
+        <h5 class="mb-1" id="left-menu-fullname"></h5>
+        <div><i class="fas fa-circle text-success"></i> Online</div>
+      </div>
+    </div>
+  </div>
+</div>

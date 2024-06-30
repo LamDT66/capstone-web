@@ -1,0 +1,95 @@
+<div class="container-fluid p-0">
+    <h1 class="h3 mb-3 font-weight-bold">Profile</h1>
+    <form id="update-profile-form">
+        <div class="row container-fluid p-4 bg-white h-100">
+            <div class="col-md-6 col-xl-6">
+                <h4 style="color: #7773E9;" class="font-weight-bolder">Basic Information</h4>
+                </br>
+
+                <!-- name -->
+                <div class="row mb-3">
+                    <div class="col-3">
+                        <span style="color: #000;" class="font-weight-bold">Name</span>
+                        <span style="color: red;">*</span>
+                    </div>
+                    <div class="col-9 form-group">
+                        <input name="validation-name" class="form-control form-control-lg" type="text" id="name-input"
+                            placeholder="Enter your full name">
+                    </div>
+                </div>
+
+                <!-- gender -->
+                <div class="row mb-3">
+                    <div class="col-3">
+                        <span style="color: #000;" class="font-weight-bold">Gender</span>
+                    </div>
+                    <div class="col-9 d-flex ">
+                        <label class="radio-button-label">
+                            <input name="validation-gender" type="radio" id="male-gender-input" value="MALE">
+                            Male
+                        </label>
+                        <label class="radio-button-label">
+                            <input name="validation-gender" type="radio" id="female-gender-input" value="FEMALE">
+                            Female
+                        </label>
+                        <label class="radio-button-label">
+                            <input name="validation-gender" type="radio" id="other-gender-input" value="OTHER">
+                            Other
+                        </label>
+                    </div>
+                </div>
+
+                <!-- faculty -->
+                <div class="row mb-3">
+                    <div class="col-3">
+                        <span style="color: #000;" class="font-weight-bold">Faculty</span>
+                        <span style="color: red;">*</span>
+                    </div>
+                    <div class="col-9 form-group">
+                        <select id="faculty-input" class="form-control" name="validation-faculty"></select>
+                    </div>
+                </div>
+
+                <!-- Role -->
+                <div class="row mb-3">
+                    <div class="col-3">
+                        <span style="color: #000;" class="font-weight-bold">Role</span>
+                    </div>
+                    <div class="col-9">
+                        <select id="role-input" class="form-control" name="validation-role"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-6">
+                <h4 style="color: #7773E9;" class="font-weight-bolder ">Contact Information</h4>
+                </br>
+                <!-- phone number -->
+                <div class="row mb-3">
+                    <div class="col-3">
+                        <span style="color: #000;" class="font-weight-bold">Phone Number</span>
+                        <span style="color: red;">*</span>
+                    </div>
+                    <div class="col-9 form-group">
+                        <input name="validation-mobile" class="form-control form-control-lg" type="text"
+                            id="mobile-input" placeholder="Enter your phone number">
+                    </div>
+                </div>
+
+                <!-- email -->
+                <div class="row mb-3">
+                    <div class="col-3">
+                        <span style="color: #000;" class="font-weight-bold">Email</span>
+                    </div>
+                    <div class="col-9">
+                        <input class="form-control form-control-lg" type="email" id="email-input">
+                    </div>
+                </div>
+            </div>
+            <!-- save button -->
+            <div class="row">
+                <button type="submit" class="btn btn-lg btn-primary">save</button>
+            </div>
+        </div>
+    </form>
+
+</div>
